@@ -1,0 +1,115 @@
+.about-container {
+    display: block;
+}
+
+.about-container ul li {
+    list-style: none;
+    font-weight: bold;
+}
+
+.about-member {
+    color: var(--crimson);
+    text-align: center;
+}
+
+.block-content {
+    padding-top: 20px;
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+.block-content h2 {
+    color: var(--crimson);
+}
+
+.block-image {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+.about-btn {
+    display: inline-block;
+    background-color: var(--blue);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-top: 20px;
+}
+
+.block-image img {
+    width: 80%;
+}
+
+.column {
+    float: right;
+    width: 25%;
+    background-color: var(--snow);
+}
+
+.col-2 {
+    margin-right: 250px;
+    border-radius: 10px;
+}
+
+.col-1 {
+    margin-right: 250px;
+    border-radius: 10px;
+}
+
+.about-form {
+    padding-top: 40px;
+    padding-bottom: 20px;
+}
+
+.column-next {
+    margin-top: 40px;
+    float: left;
+    width: 25%;
+    background-color: var(--snow);
+}
+
+.col-3 {
+    margin-right: 120px;
+    border-radius: 10px;
+    margin-left: 50px;
+}
+
+.col-4 {
+    margin-right: 60px;
+    border-radius: 10px;
+}
+
+.col-5 {
+    margin-right: 60px;
+    border-radius: 10px;
+    margin-left: 60px;
+}
+
+.about-form-2 {
+    background-color: var(--snow);
+    padding-top: 20px;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.about-map {
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.about-map-title {
+    margin-bottom: 20px;
+}
+
+.about-map iframe {
+    width: 90%;
+}
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}

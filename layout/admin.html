@@ -1,0 +1,224 @@
+<?php
+
+require_once "config.php";
+
+session_start();
+if (!isset($_SESSION['username'])) {
+  header("Location: loginadmin.php");
+  exit();
+}
+
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADMIN</title>
+    <link rel="stylesheet" href="../admin/assets/css/admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;0,500;0,600;0,700;1,100;1,300;1,400;1,500;1,600;1,700&display=swap"
+        rel="stylesheet">
+    <script src="../admin/assets/js/javascript.js"></script>
+</head>
+
+<body>
+    <header>
+        <div class="header-container">
+            <div class="head-logo">
+                <a href="index.php">
+                    <img src="../public/images/Home/logo.png" alt="">
+                    <h1>ADMIN DASHBOARD</h1>
+                </a>
+            </div>
+            <div class="head-search">
+                <input type="text" name="" id="" placeholder="Tìm kiếm...">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+            <div class="head-notify">
+                <i class="fa-regular fa-bell"></i>
+                <i class="fa-regular fa-comment"></i>
+            </div>
+            <div class="head-info">
+                <div class="user-info">
+                    <!-- <?php
+			            // session_start();
+			            if(isset($_SESSION['username'])) {
+				            echo "Xin chào " . $_SESSION['username'] . "! ";
+				            echo "<button onclick=\"dangXuat()\">Đăng xuất</button>";
+			            } else {
+				            echo "<a href=\"loginadmin.php\">Đăng nhập</a>";
+			            }
+		            ?> -->
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <sidebar>
+        <div class="sidebar-admin">
+            <h1>Tất cả</h1>
+            <nav>
+                <ul>
+                    <li><a href="admin.php"><i class="fa-solid fa-house"></i>Trang chủ Admin</a></li>
+                </ul>
+            </nav>
+
+            <h1>Quản lý Sản phẩm</h1>
+            <nav>
+                <ul>
+                    <li><a href="admin.php?id=quanlydanhmuc"><i class="fa-solid fa-list"></i>Danh mục</a></li>
+                    <li><a href="admin.php?id=quanlysanpham"><i class="fa-solid fa-gift"></i>Sản phẩm</a></li>
+                    <li><a href="admin.php?id=quanlydonhang"><i class="fa-brands fa-shopify"></i>Đơn hàng</a></li>
+                    <li><a href="admin.php?id=quanlygiaohang"><i class="fa-solid fa-truck-fast"></i>Vận chuyển và giao hàng</a></li>
+                    <li><a href="admin.php?id=quanlydanhgia"><i class="fa-solid fa-message"></i>Đánh giá và nhận xét</a></li>
+                </ul>
+            </nav>
+
+            <h1>Quản lý Bố cục Website</h1>
+            <nav>
+                <ul>
+                    <li><a href="admin.php?id=quanlyquangcaovakhuyenmai"><i class="fa-brands fa-adversal"></i>Quảng cáo và khuyến mãi</a></li>
+                    <li><a href="admin.php?id=quanlybaiviet"><i class="fa-solid fa-users-gear"></i>Bài viết tin tức blog</a></li>
+                </ul>
+            </nav>
+        </div>
+    </sidebar>
+
+
+
+
+    <article>
+        <div class="content-container">
+            <section id="section-quanlysanpham">
+                <div class="add-product-container">
+                    <form id="qlsp-form" action="add_product.php" method="post" enctype="multipart/form-data">
+                        <h1>Add New Product</h1>
+                        <h2>Image</h2>
+                        <label id="choose-file" for="imageInput" class="custom-file-upload"><i class="fa-solid fa-arrow-up-from-bracket"></i>Add Image</label>
+                        <input type="file" id="imageInput" multiple onchange="previewImage(event)">
+                        <div id="imagePreviewContainer"></div>
+                        <h2>Info</h2>
+                        <label for="name">Select Category</label>
+                        <select name="category" id="category">
+                            <!-- <?php
+                                        // Lấy danh sách các danh mục từ database
+                                        $sql = "SELECT * FROM categories";
+                                        $result = mysqli_query($conn, $sql);
+            
+                                        // Hiển thị danh sách các danh mục dưới dạng các tùy chọn trong thẻ select
+                                        while ($row = mysqli_fetch_assoc($result)) {
+                                            echo '<option value="' . $row['id'] . '">' . $row['name'] . '</option>';
+                                        }
+                                        ?> -->
+                        </select>
+                        </br>
+                        <label for="name">Name</label>
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Enter Product Name" required>
+                        <label for="description">Description</label>
+                        <textarea class="form-control" id="description" name="description" required></textarea>
+                        <label for="price">Price</label>
+                        <input type="text" class="form-control" id="price-input" name="price" min="0" required>
+                        <div class="btn-add-or-discard">
+                            <button type="submit" id="btn-discard" class="btn btn-primary">Discard</button>
+                            <button type="submit" id="btn-add" class="btn btn-primary">Add</button>
+                        </div> 
+                    </form>
+
+                    <form id="qlsp-edit-form" action="edit_product.php" method="post" enctype="multipart/form-data">
+                        <h1>Edit Product</h1>
+                        <label for="id">ID</label>
+                        <input type="text" class="form-control" id="id" name="id" placeholder="Enter Product ID" required>
+                        <h2>Image</h2>
+                        <label id="choose-file" for="imageInput" class="custom-file-upload"><i class="fa-solid fa-arrow-up-from-bracket"></i>Add Image</label>
+                        <input type="file" id="imageInput" multiple onchange="previewImage(event)">
+                        <div id="imagePreviewContainer"></div>
+                        <h2>Info</h2>
+                        <label for="name">Select Category</label>
+                        <select name="category" id="category">
+                            <!-- <?php
+                                        // Lấy danh sách các danh mục từ database
+                                        $sql = "SELECT * FROM categories";
+                                        $result = mysqli_query($conn, $sql);
+            
+                                        // Hiển thị danh sách các danh mục dưới dạng các tùy chọn trong thẻ select
+                                        while ($row = mysqli_fetch_assoc($result)) {
+                                            echo '<option value="' . $row['id'] . '">' . $row['name'] . '</option>';
+                                        }
+                                        ?> -->
+                        </select>
+                        </br>
+                        <label for="name">Name</label>
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Enter Product Name" required>
+                        <label for="description">Description</label>
+                        <textarea class="form-control" id="description" name="description" required></textarea>
+                        <label for="price">Price</label>
+                        <input type="text" class="form-control" id="price-input" name="price" min="0" required>
+                        <div class="btn-add-or-discard">
+                            <button type="submit" id="btn-discard" class="btn btn-primary" onclick="cancelEditProduct()">Discard</button>
+                            <button type="submit" id="btn-add" class="btn btn-primary">Add</button>
+                        </div> 
+                    </form>
+
+                </div>
+                <div class="list-product-container">
+                    <div class="list-title">
+                        <h2>List Product</h2>
+                        <div class="list-search">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                            <input type="search">
+                        </div>
+                        <div class="list-btn">
+                            <button type="submit" onclick="showEditProduct()">Edit Product</button>
+                        </div>
+                    </div>
+                    <div class="list-product-show">
+                        <!-- <?php
+                            include_once "../config/config.php";
+                            
+                            // Truy vấn danh sách danh mục từ bảng categories
+                            $sql = "SELECT id, name, category_image, slug FROM categories";
+                            $result = mysqli_query($conn, $sql);?> -->
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>ID<i class="fa-solid fa-caret-down"></i></th>
+                                    <th>Name<i class="fa-solid fa-caret-down"></i></th>
+                                    <th>Image<i class="fa-solid fa-caret-down"></i></th>
+                                    <th>Slug<i class="fa-solid fa-caret-down"></i></th>
+                                    <th>Action<i class="fa-solid fa-caret-down"></i></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- <?php
+                            // Hiển thị dữ liệu lấy được từ cơ sở dữ liệu
+                            if ($result->num_rows > 0) {
+                                while($row = $result->fetch_assoc()) {
+                                    echo "<tr>";
+                                    echo "<td>" . $row["id"] . "</td>";
+                                    echo "<td>" . $row["name"] . "</td>";
+                                    echo "<td><img src='../uploads/" . $row["category_image"] . "'></td>";
+                                    echo "<td>" . $row["slug"] . "</td>";
+                                    echo "<td><button id='actinon-delete-btn' onclick='deleteCategory(" . $row["id"] . ")'><i class='fa-solid fa-trash-can'></i>Delete</button></td>";
+                                    echo "</tr>";
+                                }
+                            } else {
+                                echo "<tr><td colspan='3'>No categories found.</td></tr>";
+                            }
+                        ?> -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </article>
+</body>
+
+</html>

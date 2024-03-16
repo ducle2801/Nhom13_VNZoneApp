@@ -1,0 +1,114 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--color-gray2);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+:root {
+    --color-white: #FFFFFF;
+    --color-gray1: #F5F5F5;
+    --color-gray2: #C4C2C0;
+    --color-gray3: #919FA9;
+    --color-black: #030842;
+    --color-gold: #FACC64;
+}
+
+.signup-container {
+    width: 100%;
+    height: 100vh;
+    background-color: var(--color-gray1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#signup-form {
+    width: 400px;
+    height: 580px;
+    background-color: var(--color-white);
+    border-radius: 5px;
+    position: relative;
+    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.1);
+}
+
+#signup-form h1 {
+    font-size: 20px;
+    font-weight: 600;
+    text-align: center;
+    color: var(--color-black);
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+#signup-form label {
+    font-size: 15px;
+    font-weight: 400;
+    color: var(--color-black);
+    margin-left: 36px;
+}
+
+#signup-form input {
+    width: 330px;
+    height: 35px;
+    border-radius: 5px;
+    border: 1px solid var(--color-gray2);
+    outline: none;
+    padding-left: 10px;
+    margin-left: 36px;
+    margin-bottom: 8px;
+}
+
+#signup-form #btn-signup {
+    background-color: #07ac6c;
+    color: var(--color-white);
+    font-size: 16px;
+    font-weight: 600;
+    width: 330px;
+    height: 40px;
+    border: none;
+    margin-top: 15px;
+    cursor: pointer;
+}
+
+#signup-form i {
+    font-size: 18px;
+    color: var(--color-white);
+    position: absolute;
+    right: 143px;
+    bottom: 68px;
+    transform: rotate(90deg);
+    cursor: pointer;
+}
+
+#signup-form a {
+    color: #07ac6c;
+    margin-left: 4px;
+}
+
+
+.password-container {
+    position: relative;
+  }
+  
+  .toggle-password {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
+  }
+  
+  .toggle-password i {
+    font-size: 20px;
+  }
+  
+  

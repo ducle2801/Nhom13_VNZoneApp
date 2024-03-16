@@ -1,0 +1,1110 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;0,500;0,600;0,700;1,100;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+:root {
+    --primary: #3399ff;
+    --secondary: #ebedef;
+    --success: #51cc8a;
+    --danger: #ef376e;
+    --warning: #ffcc00;
+    --info: #747af2;
+    --light: #f0f4f7;
+    --dark: #636f83;
+    --text: #37383B;
+    --white: #ffffff;
+}
+
+/* Header Admin */
+
+header {
+    width: 100%;
+    height: 60px;
+    background-color: var(--white);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+}
+
+.header-container {
+    width: 96%;
+    height: 60px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.head-logo {
+    width: 244px;
+    height: 60px;
+    padding-top: 5px;
+}
+
+.head-logo a {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    text-decoration: none;
+}
+
+.head-logo a h1 {
+    margin-top: 5px;
+    margin-left: 3px;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text);
+}
+
+.head-logo a i {
+    font-size: 2.7rem;
+    color: var(--info);
+}
+
+.head-search {
+    width: 600px;
+    height: 60px;
+    position: absolute;
+    top: 0;
+    left: 244px;
+    padding-top: 12px;
+}
+
+.head-search input {
+    width: 500px;
+    height: 35px;
+    border: none;
+    background-color: var(--secondary);
+    border-radius: 5px;
+    padding-left: 35px;
+    outline: none;
+}
+
+.head-search i {
+    font-size: 18px;
+    color: var(--text);
+    position: absolute;
+    left: 8px;
+    top: 20px;
+}
+
+.head-notify {
+    width: 100px;
+    height: 60px;
+    position: absolute;
+    top: 0;
+    right: 250px;
+    padding-top: 20px;
+    padding-left: 14px;
+}
+
+.head-notify i {
+    font-size: 22px;
+    color: var(--text);
+    margin-right: 20px;
+}
+
+.head-info {
+    width: 230px;
+    height: 60px;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.user-info {
+    width: 230px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    padding-top: 17px;
+    position: relative;
+}
+
+.user-info h1 {
+    font-size: 15px;
+    font-weight: 400;
+    margin-right: 5px;
+}
+
+.user-info .btn-logout {
+    width: 80px;
+    height: 25px;
+    font-size: 13px;
+    font-weight: 600;
+    border-radius: 5px;
+    border: none;
+    background-color: var(--info);
+    color: var(--light);
+    cursor: pointer;
+}
+
+#name-user {
+    width: 100%;
+    height: 100%;
+    background-color: #ef376e;
+}
+
+.dropdown {
+    position: relative;
+    width: 60px;
+    height: 40px;
+    background-color: #07ac6c;
+}
+
+.dropdown:hover .dropdown-content {
+    z-index: 1;
+}
+
+.dropdown-content {
+    position: absolute;
+    top: 40px;
+    right: 0;
+    z-index: -10;
+    width: 164px;
+    height: auto;
+    background-color: #51cc8a;
+}
+
+.dropdown-content a {
+    display: block;
+    width: auto;
+    height: 34px;
+    background-color: var(--cloudy);
+    color: var(--snow);
+    padding-top: 6px;
+    padding-left: 10px;
+    font-size: 0.8rem;
+    transition: all 0.3s;
+}
+
+.dropdown-content a:hover {
+    color: var(--crimson);
+}
+
+/* Định dạng cho thanh scrollbar */
+::-webkit-scrollbar {
+    width: 10px; /* Chiều rộng của thanh scrollbar */
+}
+  
+/* Định dạng cho thanh cuộn bên trong thanh scrollbar */
+::-webkit-scrollbar-thumb {
+   background-color: var(--primary); /* Màu nền của thanh cuộn */
+}
+  
+/* Định dạng cho vùng phía sau thanh cuộn trong thanh scrollbar */
+::-webkit-scrollbar-track {
+  background-color: var(--secondary); /* Màu nền của vùng phía sau thanh cuộn */
+}
+  
+sidebar {
+    width: 20%;
+    height: 100%;
+    background-color: var(--white);
+    position: fixed;
+    top: 60px;
+    left: 0;
+    overflow-y: auto;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar-admin {
+    width: 100%;
+    height: 100%;
+    padding-top: 5px;
+}
+
+.sidebar-admin h1 {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text);
+    margin-left: 30px;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+}
+
+.sidebar-admin nav ul li {
+    list-style: none;
+    width: 270px;
+    height: 50px;
+    padding-left: 30px;
+    padding-top: 15px;
+    transition: all 0.3s;
+}
+
+.sidebar-admin nav ul li:hover {
+    background-color: var(--light);
+}
+
+.sidebar-admin a {
+    width: 270px;
+    height: 50px;
+    display: block;
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--dark);
+    text-decoration: none;
+}
+
+.sidebar-admin a i {
+    font-size: 15px;
+    color: var(--dark);
+    margin-right: 10px;
+}
+
+
+/* Arrticle quản lý danh mục  */
+
+article {
+    width: 80%;
+    height: auto;
+    background-color: var(--light);
+    position: absolute;
+    top: 60px;
+    right: 0;
+}
+
+.welcome {
+    width: 100%;
+    height: 90vh;
+    background-color: var(--white);
+    padding-top: 30px;
+    border-left: 1px solid var(--light);
+}
+
+.welcome h1 {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--text);
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.welcome span {
+    color: var(--primary);
+    font-weight: 700;
+}
+
+.welcome img {
+    margin-left: 253px;
+}
+
+.content-container {
+    width: 100%;
+    height: 100%;
+    background-color: var(--success);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.content-container1 {
+    width: 100%;
+    height: 90vh;
+    background-color: var(--success);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+#section-quanlydanhmuc {
+    width: 100%;
+    height: 100%;
+    background-color: var(--danger);
+}
+
+.quanlydanhmuc-title {
+    width: 94%;
+    height: 50px;
+    padding-top: 15px;
+    margin: 0 auto;
+}
+
+.quanlydanhmuc-title h2 {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--dark);
+}
+
+.form-qldm {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    height: 100%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: var(--light);
+}
+
+.form-qldm-container {
+    width: 96%;
+    height: auto;
+    background-color: var(--white);
+    margin: 0 auto;
+    border-radius: 5px;
+    position: relative;
+    box-shadow: 
+      0 2px 2px rgba(0, 0, 0, 0.05), /* đổ bóng phía dưới */
+      0 -2px 2px rgba(0, 0, 0, 0.05), /* đổ bóng phía trên */
+      2px 0 2px rgba(0, 0, 0, 0.05), /* đổ bóng phía bên phải */
+      -2px 0 2px rgba(0, 0, 0, 0.05); /* đổ bóng phía bên trái */
+}
+
+#form-add-category {
+    display: none;
+    position: absolute;
+    top: 100px;
+    right: 350px;
+    width: 380px;
+    height: 420px;
+    background-color: var(--white);
+    box-shadow: 
+    0 2px 2px rgba(0, 0, 0, 0.05), /* đổ bóng phía dưới */
+    0 -2px 2px rgba(0, 0, 0, 0.05), /* đổ bóng phía trên */
+    2px 0 2px rgba(0, 0, 0, 0.05), /* đổ bóng phía bên phải */
+    -2px 0 2px rgba(0, 0, 0, 0.05); /* đổ bóng phía bên trái */
+}
+
+#form-add-qldm h3 {
+    font-size: 15px;
+    font-weight: 600;
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+#form-add-qldm label {
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--text);
+    margin-left: 40px;
+}
+
+#form-add-qldm input {
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--text);
+    margin-left: 40px;
+    width: 300px;
+    height: 30px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 2px solid var(--secondary);
+    outline: none;
+    margin-bottom: 15px;
+}
+
+#form-add-qldm input#category_image {
+    border-bottom: none;
+    margin-bottom: 30px;
+}
+
+#form-add-qldm button {
+    width: 120px;
+    height: 40px;
+    background-color: var(--success);
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 5px;
+    border: none;
+    color: var(--white);
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+#form-add-qldm #add_category {
+    width: 170px;
+}
+
+#form-add-qldm #add_category i {
+    margin-right: 6px;
+}
+
+#form-add-qldm #cancel_add_category {
+    background-color: var(--secondary);
+    color: var(--dark);
+    margin-left: 40px;
+    margin-right: 5px;
+}
+
+.quanlydanhmuc-search {
+    width: 94%;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    position: relative;
+}
+
+.quanlydanhmuc-search i {
+    position: absolute;
+}
+
+#search-icon {
+    top: 17px;
+    left: 10px;
+    color: var(--dark);
+}
+
+#add-icon {
+    top: 9px;
+    right: 124px;
+    color: var(--light);
+}
+
+#imagePreviewContainer-qldm {
+    width: 100%;
+    height: 60px;
+    padding-left: 40px;
+}
+
+#imagePreviewContainer-qldm img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.quanlydanhmuc-search input {
+    width: 250px;
+    height: 35px;
+    border-radius: 5px;
+    border: 2px solid var(--secondary);
+    padding-left: 30px;
+    font-style: italic;
+    font-size: 12px;
+    outline: none;
+    padding-right: 10px;
+}
+
+.quanlydanhmuc-search button {
+    width: 155px;
+    height: 35px;
+    border-radius: 5px;
+    border: none;
+    font-size: 12px;
+    font-weight: 600;
+    background-color: var(--success);
+    color: var(--light);
+    padding-left: 12px;
+    cursor: pointer;
+}
+
+.quanlydanhmuc-search #edit-btn {
+    background-color: var(--white);
+    color: var(--warning);
+    border: 2px solid var(--warning);
+}
+
+.btn-add-category {
+    position: relative;
+}
+
+.quanlydanhmuc-search .btn-add-category #icon-edit {
+    color: var(--warning);
+    top: 8px;
+    left: 10px;
+}
+
+#form-edit-qldm {
+    display: none;
+    position: absolute;
+    top: 93px;
+    right: 350px;
+    width: 380px;
+    height: 470px;
+    background-color: var(--white);
+    box-shadow: 
+    0 2px 2px rgba(0, 0, 0, 0.05), /* đổ bóng phía dưới */
+    0 -2px 2px rgba(0, 0, 0, 0.05), /* đổ bóng phía trên */
+    2px 0 2px rgba(0, 0, 0, 0.05), /* đổ bóng phía bên phải */
+    -2px 0 2px rgba(0, 0, 0, 0.05); /* đổ bóng phía bên trái */
+}
+
+#form-edit-qldm h3 {
+    font-size: 15px;
+    font-weight: 600;
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+#form-edit-qldm label {
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--text);
+    margin-left: 40px;
+}
+
+#form-edit-qldm input {
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--text);
+    margin-left: 40px;
+    width: 300px;
+    height: 30px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 2px solid var(--secondary);
+    outline: none;
+    margin-bottom: 15px;
+}
+
+#form-edit-qldm input#category_image_edit {
+    border-bottom: none;
+    margin-bottom: 30px;
+}
+
+#imagePreviewContainer-qldm-edit {
+    width: 100%;
+    height: 60px;
+    padding-left: 40px;
+}
+
+#imagePreviewContainer-qldm-edit img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+#form-edit-qldm button {
+    width: 150px;
+    height: 40px;
+    background-color: var(--warning);
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 5px;
+    border: none;
+    color: var(--white);
+    cursor: pointer;
+}
+
+#form-edit-qldm #cancel_edit_category {
+    background-color: var(--secondary);
+    color: var(--dark);
+    margin-left: 40px;
+    margin-right: 20px;
+    width: 120px;
+}
+
+#form-edit-qldm #edit_category i {
+    margin-right: 10px;
+}
+
+#confirmDelete {
+    display: none;
+    position: absolute;
+    top: 120px;
+    right: 350px;
+    width: 380px;
+    height: 180px;
+    background-color: var(--white);
+    box-shadow: 
+    0 2px 2px rgba(0, 0, 0, 0.05), /* đổ bóng phía dưới */
+    0 -2px 2px rgba(0, 0, 0, 0.05), /* đổ bóng phía trên */
+    2px 0 2px rgba(0, 0, 0, 0.05), /* đổ bóng phía bên phải */
+    -2px 0 2px rgba(0, 0, 0, 0.05); /* đổ bóng phía bên trái */
+}
+
+#confirmDelete h3 {
+    font-size: 15px;
+    font-weight: 600;
+    text-align: center;
+    margin-top: 30px;
+}
+
+#confirmDelete h4 {
+    font-size: 13px;
+    font-weight: 400;
+    text-align: center;
+    color: var(--dark);
+    margin-top: 4px;
+}
+
+#confirmDelete button {
+    width: 120px;
+    height: 40px;
+    background-color: var(--danger);
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 5px;
+    border: none;
+    color: var(--white);
+    cursor: pointer;
+    margin-top: 30px;
+}
+
+#confirmDelete button i {
+    margin-right: 5px;
+}
+
+#confirmDelete button#cancel-delete-btn {
+    background-color: var(--secondary);
+    color: var(--dark);
+    margin-left: 60px;
+    margin-right: 10px;
+    width: 120px;
+}
+
+.table-category {
+    width: 94%;
+    height: auto;
+    margin: 0 auto;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.table-category img {
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+table {
+    border-collapse: 0;
+    width: 100%;
+    border-spacing: 0px 10px;
+    padding-right: 5px;
+}
+
+th {
+    padding: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--dark);
+    text-align: left;
+    border-bottom: 1px solid var(--primary);
+}
+
+th i {
+    margin-left: 5px;
+}
+
+td {
+    text-align: justify;
+    padding: 8px 5px;
+    font-size: 12px;
+    border-bottom: 1px solid var(--secondary);
+    color: var(--text);
+    background-color: var(--white);
+}
+
+#actinon-delete-btn {
+    width: 30px;
+    height: 30px;
+    background-color: var(--danger);
+    border-radius: 50%;
+    border: none;
+    color: var(--white);
+    cursor: pointer;
+}
+
+
+
+
+
+/* LOGIN ADMIN */
+
+.loginadmin-container {
+    width: 100%;
+    height: 100vh;
+    background-color: var(--color-gray1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#loginadmin-form {
+    width: 400px;
+    height: 350px;
+    background-color: var(--color-white);
+    border-radius: 5px;
+    position: relative;
+    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.1);
+}
+
+#loginadmin-form h1 {
+    font-size: 20px;
+    font-weight: 600;
+    text-align: center;
+    color: var(--color-black);
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#loginadmin-form label {
+    font-size: 15px;
+    font-weight: 400;
+    color: var(--color-black);
+    margin-left: 36px;
+}
+
+#loginadmin-form input {
+    width: 330px;
+    height: 35px;
+    border-radius: 5px;
+    border: 1px solid var(--color-gray2);
+    outline: none;
+    padding-left: 10px;
+    margin-left: 36px;
+    
+}
+
+#loginadmin-form #btn-signup {
+    background-color: #07ac6c;
+    color: var(--color-white);
+    font-size: 16px;
+    font-weight: 600;
+    width: 330px;
+    height: 40px;
+    border: none;
+    margin-top: 15px;
+    cursor: pointer;
+}
+
+
+/* Section quản lý sản phẩm */
+#section-quanlysanpham {
+    width: 100%;
+    height: auto;
+    background-color: var(--secondary);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.add-product-container {
+    width: 320px;
+    height: auto;
+    background-color: var(--white);
+    position: relative;
+}
+
+#qlsp-form {
+    width: 320px;
+    height: 600px;
+    background-color: var(--white);
+    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    padding: 10px 20px;
+}
+
+#qlsp-edit-form {
+    position: absolute;
+    top: 0;
+    display: none;
+    width: 320px;
+    height: 670px;
+    background-color: var(--white);
+    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    padding: 10px 20px;
+}
+
+#qlsp-form h1, #qlsp-edit-form h1 {
+    font-size: 15px;
+    font-weight: 600;
+    text-align: center;
+    color: var(--text);
+}
+
+#qlsp-form h2, #qlsp-edit-form h2 {
+    font-size: 13px;
+    font-weight: 500;
+    text-align: left;
+    color: var(--text);
+    margin-top: 10px;
+}
+
+#qlsp-form label, #qlsp-edit-form label {
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--dark);
+}
+
+input[type="file"] {
+    display: none;
+}
+
+#choose-file {
+    margin-top: 10px;
+}
+
+.custom-file-upload {
+    border: 1px solid var(--secondary);
+    border-radius: 5px;
+    display: inline-block;
+    padding: 6px 10px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    vertical-align: middle;
+    background-color: var(--light);
+    transition: all 0.3s;
+    margin-bottom: 10px;
+}
+
+.custom-file-upload i {
+    margin-right: 5px;
+}
+
+.custom-file-upload:hover {
+    background-color: var(--secondary);
+    box-shadow: 
+      0 2px 2px rgba(0, 0, 0, 0.05), /* đổ bóng phía dưới */
+      0 -2px 2px rgba(0, 0, 0, 0.05), /* đổ bóng phía trên */
+      2px 0 2px rgba(0, 0, 0, 0.05), /* đổ bóng phía bên phải */
+      -2px 0 2px rgba(0, 0, 0, 0.05); /* đổ bóng phía bên trái */
+}
+
+
+
+
+select#select-category {
+    appearance: none;
+    background-color: transparent;
+    border: 1px solid var(--secondary);
+    border-radius: 4px;
+    padding: 8px;
+    font-size: 11px;
+    width: 100%;
+    max-width: 400px;
+    box-sizing: border-box;
+}
+
+select#select-category:focus {
+    outline: none;
+}
+  
+
+#qlsp-form input, #qlsp-edit-form input {
+    width: 100%;
+    height: 35px;
+    border-radius: 5px;
+    border: 1px solid var(--light);
+    background-color: var(--light);
+    outline: none;
+    padding-left: 10px;
+    font-size: 12px;
+    font-style: italic;
+    margin-bottom: 10px;
+}
+
+#qlsp-form textarea, #qlsp-edit-form textarea {
+    width: 100%;
+    height: 100px;
+    border-radius: 5px;
+    border: 1px solid var(--light);
+    background-color: var(--light);
+    outline: none;
+    padding-top: 10px;
+    padding-left: 10px;
+}
+
+#qlsp-form .form-control-file {
+    padding-top: 5px;
+    padding-left: 0px;
+    border: none;
+}
+
+.btn-add-or-discard {
+    color: var(--color-white);
+    font-size: 16px;
+    font-weight: 600;
+    width: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+#qlsp-form #btn-add, #qlsp-edit-form  #btn-add {
+    background-color: var(--success);
+    color: var(--white);
+    font-size: 16px;
+    font-weight: 600;
+    width: 45%;
+    height: 40px;
+    border: none;
+    cursor: pointer;
+    border-radius: 20px;
+}
+
+#btn-discard {
+    background-color: var(--light);
+    border: 1px solid var(--dark);
+    color: var(--dark);
+    font-size: 16px;
+    font-weight: 600;
+    width: 45%;
+    height: 40px;
+    border: none;
+    cursor: pointer;
+    border-radius: 20px;
+}
+
+#imagePreviewContainer {
+    width: 100%;
+    height: 60px;
+}
+
+#imagePreviewContainer img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    margin-right: 2px;
+    border-radius: 5px;
+}
+
+.list-product-container {
+    width: 764px;
+    height: auto;
+    background-color: var(--secondary);
+    padding: 14px;
+}
+
+.list-title {
+    width: 100%;
+    height: 50px;
+    background-color: var(--white);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 5px;
+    padding: 10px 10px;
+}
+
+.list-title h2 {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--dark);
+}
+
+.list-title .list-search {
+    position: relative;
+}
+
+.list-title .list-search i {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: var(--dark);
+}
+
+.list-title .list-search input {
+    width: 250px;
+    height: 35px;
+    border-radius: 5px;
+    border: 2px solid var(--secondary);
+    padding-left: 30px;
+    font-style: italic;
+    font-size: 12px;
+    outline: none;
+    padding-right: 10px;
+}
+
+.list-title .list-btn button {
+    width: 155px;
+    height: 35px;
+    border-radius: 5px;
+    font-size: 13px;
+    font-weight: 600;
+    border: 3px solid var(--warning);
+    background-color: var(--white);
+    color: var(--warning);
+    cursor: pointer;
+}
+
+.list-product-show {
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    background-color: var(--white);
+    padding-bottom: 30px;
+    margin-top: 10px;
+    border-radius: 0px 0px 10px 10px;
+}
+
+#imagePreviewContainer-qlsp-edit {
+    width: 100%;
+    height: 60px;
+}
+
+#imagePreviewContainer-qlsp-edit img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-right: 5px;
+}
+
+#qlsp-edit-form #btn-edit {
+    background-color: var(--warning);
+    color: var(--white);
+    font-size: 16px;
+    font-weight: 600;
+    width: 45%;
+    height: 40px;
+    border: none;
+    cursor: pointer;
+    border-radius: 20px;
+}
+
+table {
+    border-collapse: 0;
+    width: 100%;
+    border-spacing: 0px 10px;
+}
+
+th {
+    padding: 8px 0px 8px 12px;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--dark);
+    text-align: left;
+    border-bottom: 1px solid var(--primary);
+}
+
+th i {
+    margin-left: 5px;
+}
+
+td {
+    text-align: left;
+    padding: 8px 0px 8px 12px;
+    font-size: 12px;
+    border-bottom: 1px solid var(--secondary);
+    color: var(--text);
+    background-color: var(--white);
+}
+
+img#image_path {
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+    border-radius: 10px;
+}
